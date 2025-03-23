@@ -2,9 +2,8 @@ import express from "express"
 import cors from "cors"
 import bodyParser from "body-parser";
 import "dotenv/config"
-import AddExpencesRoute from "./routes/AddExpencesRoute.js"
 import ConnectDB from "./config/db.js";
-
+import ExpenseRoutes from "./routes/ExpenseRoutes.js"
 const port = process.env.PORT || 5600
 
 // Midddlewares
@@ -13,8 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //Routes:
-app.use("/expenses",AddExpencesRoute);
-
+app.use("/expenses", ExpenseRoutes);
 //DataBase Connection 
 ConnectDB();
 
